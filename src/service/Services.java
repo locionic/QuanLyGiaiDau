@@ -67,11 +67,20 @@ public class Services {
 			e.printStackTrace();
 		}
 		return false;
-	}
+	}//sign in dễ t làm r, còn 4 chức năng này nữa chắc đủ r á cái này là theo bản mã VNIKEY gì á nó k cho save trừ khi mà đánh k dấu
 	@GET
 	@Path("/get-team/")
 	@Produces(MediaType.TEXT_PLAIN)
-	public void getTeam() {
-		
+	public void getTeamMatch() {
+		//method này dùng để lấy dữ liệu từ db, dán lên page để hiển thị cho user xem các trận đấu của các team, vd: Team A: 0 ----- Team B: 1
+	}
+	public void SapXepTranDau() {
+		//method này dùng để auto sắp các team đấu vs nhau
+	}
+	public void updatePlayer() {
+		//này dùng để cập nhật player như là thêm thẻ vàng, đỏ, điểm đã ghi
+	}
+	public void updateTeamMatch() {
+		//này dùng để cập nhật báng điểm của team
 	}
 }
