@@ -71,8 +71,36 @@ public class Services {
 	@GET
 	@Path("/get-team/")
 	@Produces(MediaType.TEXT_PLAIN)
-	public void getTeamMatch() {
+	public String getTeamMatch() {
+		System.out.println("abc");
 		//method này dùng để lấy dữ liệu từ db, dán lên page để hiển thị cho user xem các trận đấu của các team, vd: Team A: 0 ----- Team B: 1
+        String details = ""; 
+        try 
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+			conn = new DBConnection().getConnection();
+
+            String query = "select teamA_id, teamB_id from team_match";
+
+            pstmt = conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+
+            details = "<html><body>"; 
+            details = details + "<table border=1>";
+            details = details + "<tr><td><Strong>Team A </Strong></td>" +
+                                    "<td><Strong>Team B </Strong></td>" + "</tr>";
+            while (rs.next()) 
+            {
+                details = details + "<tr><td>" + rs.getInt("teamA_id") + "</td>" +
+                                        "<td>" + rs.getInt("teamB_id") + "</td></tr>";
+            }
+            details += "</table></body></html>";
+        } 
+        catch (Exception e) 
+        {
+            System.out.println(e.getMessage());
+        }   
+        return details;
 	}
 	public void SapXepTranDau() {
 		//method này dùng để auto sắp các team đấu vs nhau
