@@ -21,7 +21,7 @@ session_start();
 	$msg='';
 	if(isset($_POST['login'])&&!empty($_POST['username'])&&!empty($_POST['password'])){
 		$ch=curl_init();
-		curl_setopt($ch, CURLOPT_URL,"http://localhost:8080/QuanLyGiaiDau/rest/services/sign-in");
+		curl_setopt($ch, CURLOPT_URL,"http://batisuoc.ddns.net:8083/QuanLyGiaiDau/rest/services/sign-in");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('username' => $_POST['username'],
 			'password' => $_POST['password'])));
