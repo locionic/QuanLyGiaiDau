@@ -40,6 +40,8 @@ services:
         image: duonghuuphuc/tomcat-8.5.32
         ports:
             - 8083:8080
+        volumes:
+            - ./services:/usr/local/tomcat/webapps
         networks:
             - default
 volumes:
