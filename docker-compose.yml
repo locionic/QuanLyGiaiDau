@@ -36,5 +36,11 @@ services:
             MYSQL_USER: user
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test
+    tomcat:
+        image: duonghuuphuc/tomcat-8.5.32
+        ports:
+            - 8083:8080
+        networks:
+            - default
 volumes:
         persistent:
