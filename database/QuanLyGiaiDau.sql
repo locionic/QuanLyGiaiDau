@@ -1,4 +1,4 @@
-create database QuanLyGiaiDau collate utf8_bin;;
+-- create database QuanLyGiaiDau collate utf8_bin;;
 
 use QuanLyGiaiDau;
 

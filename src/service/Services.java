@@ -25,6 +25,16 @@ public class Services {
 	private ResultSet rs = null;
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
+	
+	@GET
+	@Path("/get-datetime")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getDatetime() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy hh:mm:ss aa");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+	
 	@POST
 	@Path("/sign-in/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
